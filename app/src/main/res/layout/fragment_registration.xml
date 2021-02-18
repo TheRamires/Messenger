@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="registr"
+            type="ram.ramires.messenger.activityEntrance.FragmentRegistration" />
+        <variable
+            name="viewModel"
+            type="ram.ramires.messenger.activityEntrance.ViewModel1" />
+        <variable
+            name="validator"
+            type="ram.ramires.messenger.activityEntrance.ValidatorR" />
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E7F3F3"
+    tools:context=".activityEntrance.FragmentRegistration">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tree"
+        android:alpha="0.025"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_marginBottom="25dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".activityEntrance.FragmentAuthorization"
+        android:orientation="vertical"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        android:id="@id/linear"
+        >
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:onTextChanged="@{validator::loginChanged}"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:hint="Login"
+                android:inputType="textNoSuggestions"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
+            <ImageView
+                android:visibility="@{validator.loginTrue ? View.VISIBLE : View.INVISIBLE}"
+                android:layout_marginHorizontal="5dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/tick"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:onTextChanged="@{validator::mailChanged}"
+                android:singleLine="true"
+                android:padding="5dip"
+                android:layout_gravity="center_horizontal"
+                android:hint="Mail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
+            <ImageView
+                android:visibility="@{validator.mailTrue ? View.VISIBLE : View.INVISIBLE}"
+                android:layout_marginHorizontal="5dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/tick"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:onTextChanged="@{validator::passwordChanged}"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:hint="Password"
+                android:inputType="textNoSuggestions"
+                android:textCursorDrawable="@drawable/color_cursor"/>
+            <ImageView
+                android:visibility="@{validator.passwordTrue ? View.VISIBLE : View.INVISIBLE}"
+                android:layout_marginHorizontal="5dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/tick"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+            <EditText
+
+                android:onTextChanged="@{validator::confirmChanged}"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:hint="Сonfirm"
+                android:inputType="textNoSuggestions"
+                android:textCursorDrawable="@drawable/color_cursor"
+                />
+            <ImageView
+                android:visibility="@{validator.confirmTrue ? View.VISIBLE : View.INVISIBLE}"
+                android:layout_marginHorizontal="5dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/tick"
+                />
+        </FrameLayout>
+    </LinearLayout>
+    <TextView
+        android:text="Информация об ошибке"
+        android:textColor="#D10101"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_registr"
+        android:visibility="invisible"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:onClick="@{registr.toDialogActivity}"
+        android:text="Register "
+        android:textColor="#AAAAAA"
+        android:id="@+id/btn_registr"
+        android:background="@{validator.cliCkable==true ? @drawable/btn_authoriz_custom : @drawable/btn_registr_custom}"
+        android:theme="@style/Buttonize"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linear"
+        android:layout_marginTop="20dp"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:clickable="@{validator.cliCkable==true ? true : false}"
+        />
+
+    <TextView
+        android:textColor="@drawable/color_text"
+        android:id="@+id/authoriz"
+        android:layout_alignLeft="@+id/btn_registr"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_registr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Авторизация"
+        android:clickable="true"
+        android:onClick="@{registr.toAuthoriz}"
+        />
+</RelativeLayout>
+</layout>

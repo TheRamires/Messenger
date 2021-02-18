@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="authoriz"
+            type="ram.ramires.messenger.activityEntrance.FragmentAuthorization" />
+    </data>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_700"
+    tools:context=".activityEntrance.FragmentAuthorization">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tree"
+        />
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_below="@+id/image"
+    android:layout_marginVertical="25dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".activityEntrance.FragmentAuthorization"
+    android:background="@drawable/round_corners"
+    android:orientation="vertical"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:id="@id/linear"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:singleLine="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:hint="Login"
+        android:backgroundTint="@color/white"
+        android:inputType="textNoSuggestions"
+        android:textCursorDrawable="@drawable/color_cursor"
+        />
+    <View
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/hline"
+        android:background="@color/teal_700"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        />
+    <EditText
+
+        android:singleLine="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:hint="Password"
+        android:backgroundTint="@color/white"
+        android:inputType="textNoSuggestions"
+        android:textCursorDrawable="@drawable/color_cursor"
+        />
+</LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:onClick="@{authoriz.toDialogActivity}"
+        android:id="@+id/btn_authoriz"
+        android:background="@drawable/btn_authoriz_custom"
+        android:theme="@style/Buttonize"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linear"
+        android:layout_marginTop="20dp"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        />
+
+    <TextView
+
+        android:textColor="@drawable/color_text"
+        android:id="@+id/registr"
+        android:layout_alignLeft="@+id/btn_authoriz"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_authoriz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Регистрация"
+        android:clickable="true"
+        android:onClick="@{authoriz.toRegistr}"
+        />
+</RelativeLayout>
+</layout>
